@@ -8,5 +8,11 @@ public class Main {
         ApplicationContext ac=
                 new ClassPathXmlApplicationContext("myappconfig.xml");
       //  Trainee t=ac.getBean(Trainee.class);
+        Assessment a1=ac.getBean(Assessment.class);
+        System.out.println(a1.hashCode());
+        Assessment a2=ac.getBean(Assessment.class);
+        System.out.println(a2.hashCode());
+        Assessment a3=ac.getBean(Assessment.class);
+        System.out.println(a3.hashCode());
     }
 }

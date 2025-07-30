@@ -7,15 +7,21 @@
 		http://www.springframework.org/schema/context
 		https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="assess" class="com.cams.Assessment" ></bean>
+    <bean id="assessment" class="com.cams.Assessment"></bean>
     <bean class="com.cams.Trainee" autowire="constructor">
 <!--        <constructor-arg name="assessment" ref="assess"></constructor-arg>-->
     </bean>
-
-    <bean id="process" class="com.cams.Processor"></bean>
-    <bean class="com.cams.Mobile" autowire="byType">
-<!--        <property name="process" ref="pro"></property>-->
+    <bean class="com.cams.Trainee" autowire="byType">
+<!--        <property name="assessment" ref="assess"></property>-->
     </bean>
+    <bean class="com.cams.Trainee" autowire="byName">
+        <!--        <property name="assessment" ref="assess"></property>-->
+    </bean>
+
+<!--    <bean id="process" class="com.cams.Processor"></bean>-->
+<!--    <bean class="com.cams.Mobile" autowire="byType">-->
+<!--&lt;!&ndash;        <property name="process" ref="pro"></property>&ndash;&gt;-->
+<!--    </bean>-->
 
 
 
