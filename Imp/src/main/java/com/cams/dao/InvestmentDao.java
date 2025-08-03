@@ -1,13 +1,14 @@
 package com.cams.dao;
 
-import com.cams.dto.Investment;
+import com.cams.dto.InvestmentDto;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class InvestmentDao {
-    public int addInvestment(Investment investment) {
+    public int addInvestment(InvestmentDto investment) {
         //investment data from main to service, from service to dao
         // jdbc code to insert an investment data to the database
         String url = "jdbc:mysql://localhost:3306/investmentdb";
@@ -21,11 +22,11 @@ public class InvestmentDao {
             con = DriverManager.getConnection(url, username, password);
             String insertQuery = "INSERT INTO investment VALUES(?,?,?,?,?)";
             pstmt = con.prepareStatement(insertQuery);
-            pstmt.setInt(1, investment.getInvestmentId());
-            pstmt.setString(2, investment.getInvestmentName());
-            pstmt.setString(3, investment.getInvestmentType());
-            pstmt.setInt(4, investment.getInvestmentAmount());
-            pstmt.setDate(5, investment.getInvestmentDate());
+            pstmt.setInt(1, investment.investmentId());
+            pstmt.setString(2, investment.investmentName());
+            pstmt.setString(3, investment.investmentType());
+            pstmt.setInt(4, investment.investmentAmount());
+            pstmt.setDate(5, investment.investmentDate());
             result = pstmt.executeUpdate();
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -41,7 +42,7 @@ public class InvestmentDao {
         return result;
     }
 
-    public List<Investment> getAllInvestments() {
+    public List<InvestmentDto> getAllInvestments() {
         //jdbc code to fetch all investments
         String url = "jdbc:mysql://localhost:3306/investmentdb";
         String username = "root";
@@ -49,7 +50,7 @@ public class InvestmentDao {
         Connection con;
         PreparedStatement pstmt;
         ResultSet rs;
-        List<Investment> investmentList = new ArrayList<>();
+        List<InvestmentDto> investmentList = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, username, password);
@@ -57,12 +58,12 @@ public class InvestmentDao {
             pstmt = con.prepareStatement(selectQuery);
             rs = pstmt.executeQuery();
             while (rs.next()) {
-                Investment investment = new Investment();
-                investment.setInvestmentId(rs.getInt(1));
-                investment.setInvestmentName(rs.getString(2));
-                investment.setInvestmentType(rs.getString(3));
-                investment.setInvestmentAmount(rs.getInt(4));
-                investment.setInvestmentDate(rs.getDate(5));
+                InvestmentDto investment = new InvestmentDto(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getDate(5));
                 investmentList.add(investment);
             }
         } catch (ClassNotFoundException e) {

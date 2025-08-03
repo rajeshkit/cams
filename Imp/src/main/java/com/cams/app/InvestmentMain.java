@@ -1,22 +1,43 @@
 package com.cams.app;
 
-import com.cams.dto.Investment;
+import com.cams.AppConfig;
+import com.cams.dto.InvestmentDto;
+import com.cams.exception.InvalidInvestmentIdException;
 import com.cams.service.InvestmentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.sql.Date;
 import java.util.List;
 import java.util.Scanner;
-
+@Component
 public class InvestmentMain {
-    public static void main(String[] args) {
+    InvestmentService investmentService;
+    @Autowired
+    public InvestmentMain(InvestmentService investmentService) {
+        this.investmentService = investmentService;
+    }
+
+    public static void main(String[] args) throws InvalidInvestmentIdException {
         //logic getting an input / output for Investment
         //addInvestment();
         //getAllInvestments();
+       // deleteInvestmenById();
+        ApplicationContext ac=
+                new AnnotationConfigApplicationContext(AppConfig.class);
+        InvestmentMain investmentMain=ac.getBean(InvestmentMain.class);
+        //investmentMain.addInvestment();
+       investmentMain.getAllInvestments();
+//        investmentMain.deleteInvestmenById();
+    }
+
+    private void deleteInvestmenById() throws InvalidInvestmentIdException {
         Scanner s=new Scanner(System.in);
         System.out.println("Enter the ID of the investment wanted to delete");
         int id=s.nextInt();
-        InvestmentService investmentService=new InvestmentService();
         int result=investmentService.deleteInvestmentById(id);
         if(result!=0){
             System.out.println("investment deleted successfully");
@@ -25,15 +46,14 @@ public class InvestmentMain {
         }
     }
 
-    private static void getAllInvestments() {
-        InvestmentService investmentService=new InvestmentService();
-        List<Investment> allInvestment=investmentService.getAllInvestment();
-        for(Investment i:allInvestment){
+    private void getAllInvestments() {
+        List<InvestmentDto> allInvestment=investmentService.getAllInvestment();
+        for(InvestmentDto i:allInvestment){
             System.out.println(i);
         }
     }
 
-    private static void addInvestment() {
+    private void addInvestment() {
         Scanner s=new Scanner(System.in);
         System.out.println("Enter the investment ID:");
         int iId=s.nextInt();
@@ -45,8 +65,7 @@ public class InvestmentMain {
         System.out.println("Enter the investment Amount:");
         int iAmount=s.nextInt();
         Date iDate = Date.valueOf(LocalDate.now());
-        Investment investment=new Investment(iId,iName,iType,iAmount,iDate);
-        InvestmentService investmentService=new InvestmentService();
+        InvestmentDto investment=new InvestmentDto(iId,iName,iType,iAmount,iDate);
         int result=investmentService.addInvestment(investment);
         if(result!=0){
             System.out.println("Investment successfully added");
