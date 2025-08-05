@@ -4,6 +4,7 @@ import com.cams.AppConfig;
 import com.cams.dto.InvestmentDto;
 import com.cams.exception.InvalidInvestmentIdException;
 import com.cams.service.InvestmentService;
+import com.cams.service.InvestmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,7 +18,7 @@ import java.util.Scanner;
 public class InvestmentMain {
     InvestmentService investmentService;
     @Autowired
-    public InvestmentMain(InvestmentService investmentService) {
+    public InvestmentMain(InvestmentServiceImpl investmentService) {
         this.investmentService = investmentService;
     }
 
