@@ -7,6 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class StockServiceImpl implements StockService{
    StockRepository stockRepository;
@@ -14,10 +17,30 @@ public class StockServiceImpl implements StockService{
     public StockServiceImpl(StockRepository stockRepository) {
         this.stockRepository = stockRepository;
     }
-
     @Override
     public Stock addPost(Stock stock) {
         Stock s=stockRepository.save(stock);
         return s;
+    }
+    @Override
+    public List<Stock> getAllStocks() {
+        return stockRepository.findAll();
+    }
+
+    @Override
+    public Stock getStockById(int stockId) {
+        Optional<Stock> optionalStock=stockRepository.findById(stockId);
+        if (optionalStock.isPresent()){
+            return optionalStock.get();
+        }
+        return null;//throw StockIdIsNotExistsException();
+    }
+
+    @Override
+    public Stock updateStock(Stock stock) {
+        if(stockRepository.existsById(stock.getId())){
+            return stockRepository.save(stock);
+        }
+        return null;//throw StockUpdateFailedException()
     }
 }
