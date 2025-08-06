@@ -1,16 +1,19 @@
 package com.cams.sms.dto;
 
-import java.util.Objects;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+import java.util.Objects;
+@Entity
 public class Stock {
+    @Id
     private int id;
     private String name;
     private int unit;
     private long total;
+    public Stock(){
 
-    public Stock() {
     }
-
     public Stock(int id, String name, int unit, long total) {
         this.id = id;
         this.name = name;

@@ -1,43 +1,23 @@
 package com.cams.sms.service;
 
-import com.cams.sms.dao.StockDao;
-import com.cams.sms.dao.StockDaoImpl;
 import com.cams.sms.dto.Stock;
+import com.cams.sms.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 @Service
 public class StockServiceImpl implements StockService{
-
-    StockDao stockDao;
+   StockRepository stockRepository;
     @Autowired
-    public StockServiceImpl(StockDao stockDao) {
-        this.stockDao = stockDao;
+    public StockServiceImpl(StockRepository stockRepository) {
+        this.stockRepository = stockRepository;
     }
 
     @Override
-    public Stock createStock(Stock stock) {
-        return null;
-    }
-
-    @Override
-    public List<Stock> getAllStocks() {
-        return List.of();
-    }
-
-    @Override
-    public Stock getStockById(int stockId) {
-        return null;
-    }
-
-    @Override
-    public Stock updateStocks(Stock stock) {
-        return null;
-    }
-
-    @Override
-    public String deleteStocks(Stock stock) {
-        return "";
+    public Stock addPost(Stock stock) {
+        Stock s=stockRepository.save(stock);
+        return s;
     }
 }
