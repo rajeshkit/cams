@@ -1,6 +1,7 @@
 package com.cams.sms.service;
 
 import com.cams.sms.dto.Stock;
+import com.cams.sms.exception.StockIdIsNotExistsException;
 import com.cams.sms.repository.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -33,7 +34,7 @@ public class StockServiceImpl implements StockService{
         if (optionalStock.isPresent()){
             return optionalStock.get();
         }
-        return null;//throw StockIdIsNotExistsException();
+        throw new StockIdIsNotExistsException("Getting stock is failed due to stock ID:"+stockId+" is invalid verify the stock id");
     }
 
     @Override
@@ -41,6 +42,6 @@ public class StockServiceImpl implements StockService{
         if(stockRepository.existsById(stock.getId())){
             return stockRepository.save(stock);
         }
-        return null;//throw StockUpdateFailedException()
+        throw new StockIdIsNotExistsException("Update is failed due to the stock ID:"+stock.getId()+" is invalid verify the stock id");//throw StockUpdateFailedException()
     }
 }
