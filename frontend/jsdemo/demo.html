@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1 id="header1" onclick="handleButton()">Topic</h1>
+    <p id="para1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit delectus molestias nisi non consequuntur dolore consectetur reiciendis, commodi, ullam ipsum obcaecati rem aspernatur facere illo provident. Soluta perspiciatis accusantium accusamus.</p>
+    <select id="choose" onchange="handleChoice(event)">
+        <option>One</option>
+         <option>Two</option>
+          <option>Three</option>
+    </select>
+    <input type="text" id="myTextBox" onblur="handleTextFocus(event)"/>
+    <button id="mybutton" onclick="handleButton()">Click here</button>
+    <script>
+        let firstName="Cams";
+        let lastName="Chennai";
+        console.log("Company First name: "+firstName+" Company Last Name: "+lastName+" completed");
+        console.log(`Company First name: ${firstName} Company Last Name: ${lastName} completed`);
+
+        //Destructring:-
+            // Array - []
+                    // let trainee=['rohini',3434,"Female",true,"Mumbai"];
+                    // let [,,gender,,location1]=trainee; 
+                    // // console.log(name);
+                    // // console.log(id);
+                    // console.log(gender);
+                    // console.log(location1);
+ 
+            // Object - {}
+            // let trainee1={
+            //         name:'rohini',
+            //         id:3434,
+            //         gender:"Female",
+            //         isPermanent:true,
+            //         place:"Mumbai"
+            // };
+
+            // let {id,place,gender}=trainee1;
+            // console.log(id);
+            // console.log(gender);
+            // console.log(place);
+            
+              // Array of object - [{},{},{}]
+            //   let trainees=[
+            //     {name:'rohini',id:3434,gender:"Female",isPermanent:true,place:"Mumbai"},
+            //     {name:'subash',id:3438,gender:"Male",isPermanent:true,place:"Delhi"},
+            //     {name:'ajay',id:3477,gender:"Male",isPermanent:true,place:"Chennai"},
+            //     {name:'rohit',id:3433,gender:"Maale",isPermanent:true,place:"Bangalore"},
+            //   ];
+            //    let  [{name:n,place:p},...newObject]  = trainees;
+            //    console.log(n);
+            //    console.log(p);
+            //    console.log(newObject);
+               
+               
+            //    function display(a,b,...c){
+            //     console.log(a);
+            //     console.log(b);
+            //     console.log(c);
+            //    }
+            //     display(23,45,78,56,777,4545,7878,5656)
+
+
+            // object with array - {[]}
+        
+        // function handleButton(){  //eventlistenermethod
+        //     var x = document.querySelector('#choose');
+        //     x.remove();
+        //     let y=document.getElementById('para1');
+          
+        //     let h2 = document.createElement('h2');
+        //     h2.textContent="This is dynamically created h2";
+        //     y.style.color='red';
+        //     document.body.appendChild(h2)
+        // }
+        // function handleTextFocus(event){
+        //     var div = document.createElement('div');
+        //     div.textContent=event.target.value;
+        //     document.body.appendChild(div);
+            
+        // }
+        // function handleChoice(event){
+        //     console.log(event); 
+        // }
+       //spread operator
+            // let trainee=['rohini',3434,"Female",true,"Mumbai"];
+            // let m=trainee; // Deep copy - immutable
+            // let l=[...trainee,"cactus","siruseri","teccie park"]; //shallow copy - muttable
+            // console.log(l);
+            let trainee1= {name:'rohini',id:3434,gender:"Female",isPermanent:true,place:"Mumbai"};
+            console.log(trainee1);
+            let confirmedTrainee={...trainee1,place:'Chennai',email:'rohini@gmail.com',phone:747446}
+            console.log(confirmedTrainee);
+            
+            
+    </script>
+</body>
+</html>

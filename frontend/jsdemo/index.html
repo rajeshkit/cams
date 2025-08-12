@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Webpage</title>
+    <script>
+
+
+        // var names=["Chennai","Bengalore","Pune","Mumbai"];
+        // console.log(names);
+        // var temprature=[34,56,23,56,-3,45];
+        // console.log(temprature);
+        // var wethear=[45,56,"Chennai",true,null,undefined,56.5];
+        // console.log(wethear);
+        // //while , do while, for loop
+        // console.log("********basic for loop*************");
+
+        // for (let index = 0; index < wethear.length; index++) {
+        //     console.log(wethear[index]);  
+        // }
+        // console.log("********for of *************");
+        // for (const element of wethear) {
+        //     console.log(element);
+
+        // }
+        //  console.log("********for in *************");
+        //  for (const key in wethear) {
+        //     console.log(key+" "+wethear[key]);
+
+        //  }
+        // console.log("********forEach *************");
+        // wethear.forEach((e)=>console.log());
+
+        //     var company={
+        //         name:"CAMS",
+        //         count:500,
+        //         location:"Chennai",
+        //         training:'freshers',
+        //         x: function add(){
+        //             console.log("add function");
+
+        //         }            
+        //     }
+        //     console.log(company);
+
+        //     // console.log("**********for of***********");
+        //     // for (const element of company) {
+        //     //     console.log(element);
+
+        //     // }
+        //     console.log("**********for in***********");
+        //     for (const element in company) {
+        //         console.log(element);
+
+        //     }
+        //      console.log("**********for in***********");
+        //     for (const element in company) {
+        //         console.log(company[element]);
+
+        //     }
+
+        //    // Object
+        //    for (const entry of Object.values(company)) {
+        //         console.log(entry);
+
+        //    }
+        //    var data=[]; // Array
+        //    var data1={}; // object
+        //    var data2=[
+        //         {user:'user1',password:"user1"},
+        //         {user:'user2',password:"user2"},
+        //         {user:'user3',password:"user3"}
+        //     ]; //Array of objects
+        //     for (const element of data2) {
+        //         console.log(element.user);
+        //         console.log(element.password);
+
+
+        //     }
+
+
+        //    var data3={arr1:[],arr2:[],arr3:[]};//object with arrays  
+
+        //Function declaration
+        // function login(username,password){
+        //     return username+" "+password;
+        // }
+        // var answer=login("rajesh","123");
+        // console.log(answer);
+        // // Function Expression
+        // var total=function login(username,password){
+        //     return username+" "+password;
+        // }
+        // console.log(total("ajay","123"));
+        // // Anonymous Function Expression
+        // var total1=function(username,password){
+        //     return username+" "+password;
+        // }
+        // console.log(total1("ajay","123"));
+        // // Arrow Function
+        //  var total1=(username,password)=>username+" "+password;
+
+        // console.log(total1("ajay","123"));
+        // var x = function payment() {
+        //     setTimeout(() => {
+        //         // rest Api call
+        //         let sum = 0;
+        //         for (let i = 0; i < 4; i++) {
+        //             sum += i; // A time-consuming operation
+        //         }
+        //         console.log("payment method is completed");
+        //     }, 5000)
+
+        // }
+        // function bank(callback) {//formal args
+        //     console.log("bank logic statement1");
+        //     console.log("bank logic statement2");
+        //     callback()
+        //     console.log("bank logic statement3");
+        //     console.log("bank logic statement4");
+        //     console.log("bank logic statement5");
+        // }
+        // bank(x);// actual arg
+        // promise state -> pending state -> fullfiled
+        // promise state -> pending state -> rejected
+        // var x = new Promise(function (resolve, reject) {
+        //     let xhr = new XMLHttpRequest();
+        //     let url = 'https://jsonplaceholder.typicode.com/todos/1';
+        //     xhr.open("GET", url, true);
+
+        //     xhr.onreadystatechange = function () {
+        //         if (this.readyState == 4 && this.status == 200) {
+        //          //   console.log(this.responseText);
+                    
+        //             return resolve(this.response);
+        //         } 
+        //     }
+        //     // Sending our request 
+        //     xhr.send();
+           
+        // });
+
+        // x.then((data) => { return data })
+        // .then((response)=>{console.log(response);
+        // })
+        //     .catch((error) => { console.log(error) })
+        //     .finally(() => {
+        //         console.log('finally');
+        //     })
+
+       
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Hello, World!</h1>
+    <h1>namakkal</h1>
+    <button id="myButton" >Click Me</button>
+    <p id="message">Welcome</p>
+    <div id="content"></div>
+    <script> 
+let data1 = {
+  "status": "success",
+  "data": [
+    {
+      "id": 1,
+      "employee_name": "Tiger Nixon",
+      "employee_salary": 320800,
+      "employee_age": 61,
+      "profile_image": ""
+    },
+    {
+      "id": 2,
+      "employee_name": "Garrett Winters",
+      "employee_salary": 170750,
+      "employee_age": 63,
+      "profile_image": ""
+    },
+    {
+      "id": 3,
+      "employee_name": "Ashton Cox",
+      "employee_salary": 86000,
+      "employee_age": 66,
+      "profile_image": ""
+    },
+    {
+      "id": 4,
+      "employee_name": "Cedric Kelly",
+      "employee_salary": 433060,
+      "employee_age": 22,
+      "profile_image": ""
+    },
+    {
+      "id": 5,
+      "employee_name": "Airi Satou",
+      "employee_salary": 162700,
+      "employee_age": 33,
+      "profile_image": ""
+    },
+    {
+      "id": 6,
+      "employee_name": "Brielle Williamson",
+      "employee_salary": 372000,
+      "employee_age": 61,
+      "profile_image": ""
+    },
+    {
+      "id": 7,
+      "employee_name": "Herrod Chandler",
+      "employee_salary": 137500,
+      "employee_age": 59,
+      "profile_image": ""
+    },
+    {
+      "id": 8,
+      "employee_name": "Rhona Davidson",
+      "employee_salary": 327900,
+      "employee_age": 55,
+      "profile_image": ""
+    },
+    {
+      "id": 9,
+      "employee_name": "Colleen Hurst",
+      "employee_salary": 205500,
+      "employee_age": 39,
+      "profile_image": ""
+    },
+    {
+      "id": 10,
+      "employee_name": "Sonya Frost",
+      "employee_salary": 103600,
+      "employee_age": 23,
+      "profile_image": ""
+    },
+    {
+      "id": 11,
+      "employee_name": "Jena Gaines",
+      "employee_salary": 90560,
+      "employee_age": 30,
+      "profile_image": ""
+    },
+    {
+      "id": 12,
+      "employee_name": "Quinn Flynn",
+      "employee_salary": 342000,
+      "employee_age": 22,
+      "profile_image": ""
+    },
+    {
+      "id": 13,
+      "employee_name": "Charde Marshall",
+      "employee_salary": 470600,
+      "employee_age": 36,
+      "profile_image": ""
+    },
+    {
+      "id": 14,
+      "employee_name": "Haley Kennedy",
+      "employee_salary": 313500,
+      "employee_age": 43,
+      "profile_image": ""
+    },
+    {
+      "id": 15,
+      "employee_name": "Tatyana Fitzpatrick",
+      "employee_salary": 385750,
+      "employee_age": 19,
+      "profile_image": ""
+    },
+    {
+      "id": 16,
+      "employee_name": "Michael Silva",
+      "employee_salary": 198500,
+      "employee_age": 66,
+      "profile_image": ""
+    },
+    {
+      "id": 17,
+      "employee_name": "Paul Byrd",
+      "employee_salary": 725000,
+      "employee_age": 64,
+      "profile_image": ""
+    },
+    {
+      "id": 18,
+      "employee_name": "Gloria Little",
+      "employee_salary": 237500,
+      "employee_age": 59,
+      "profile_image": ""
+    },
+    {
+      "id": 19,
+      "employee_name": "Bradley Greer",
+      "employee_salary": 132000,
+      "employee_age": 41,
+      "profile_image": ""
+    },
+    {
+      "id": 20,
+      "employee_name": "Dai Rios",
+      "employee_salary": 217500,
+      "employee_age": 35,
+      "profile_image": ""
+    },
+    {
+      "id": 21,
+      "employee_name": "Jenette Caldwell",
+      "employee_salary": 345000,
+      "employee_age": 30,
+      "profile_image": ""
+    },
+    {
+      "id": 22,
+      "employee_name": "Yuri Berry",
+      "employee_salary": 675000,
+      "employee_age": 40,
+      "profile_image": ""
+    },
+    {
+      "id": 23,
+      "employee_name": "Caesar Vance" ,
+      "employee_salary": 106450,
+      "employee_age": 21,
+      "profile_image": ""
+    },
+    {
+      "id": 24,
+      "employee_name": "Doris Wilder",
+      "employee_salary": 85600,
+      "employee_age": 23,
+      "profile_image": ""
+    }
+  ],
+  "message": "Successfully! All records has been fetched."
+}
+   const {data}=data1
+   console.log(data);
+    var x = document.createElement('ol');
+    data.map((data,index)=>{
+       var li=document.createElement('li');
+       var text = document.createTextNode(JSON.stringify(data));
+       li.append(text);
+       x.appendChild(li);   
+    })
+    var d=document.getElementById('content');
+    d.append(x);
+        
+        
+    </script>
+</body>
+
+</html>
